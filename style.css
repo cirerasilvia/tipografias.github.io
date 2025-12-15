@@ -1,38 +1,48 @@
-/* RESET BÁSICO */
+/* ------------------------- RESET BÁSICO ------------------------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* CUERPO */
+/* ------------------------- BODY ------------------------- */
 body {
   font-family: sans-serif;
   background: #fff;
-  overflow: hidden;
+  overflow: hidden; /* evita scroll vertical */
 }
 
-/* TÍTULO */
+/* ------------------------- TÍTULO ------------------------- */
 .titulo {
   text-align: center;
   padding: 20px;
   font-size: 2em;
+  font-weight: bold;
 }
 
-/* CATÁLOGO HORIZONTAL */
+/* ------------------------- CATÁLOGO HORIZONTAL ------------------------- */
 .catalogo {
   display: flex;
-  gap: 40px;
+  gap: 40px; /* espacio entre tarjetas */
   padding: 40px;
-  overflow-x: auto;
-  height: calc(100vh - 80px);
+  overflow-x: scroll; /* scroll horizontal activo */
+  height: calc(100vh - 80px); /* altura menos título */
   align-items: center;
   scroll-behavior: smooth;
 }
 
-/* TARJETAS TIPOGRAFÍA */
+/* Quitar barra de scroll en Chrome, Firefox, Edge */
+.catalogo::-webkit-scrollbar {
+  display: none;
+}
+.catalogo {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* ------------------------- TARJETAS TIPOGRAFÍA ------------------------- */
 .card {
-  min-width: 250px;
+  min-width: 250px;      /* ancho de cada tarjeta */
   height: 200px;
   border: 1px solid #000;
   display: flex;
@@ -41,19 +51,24 @@ body {
   font-size: 48px;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  background: #fff;
+  text-align: center;
 }
 
 .card:hover {
   transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Móvil: swipe natural */
+/* ------------------------- RESPONSIVE / MÓVIL ------------------------- */
 @media (max-width: 768px) {
   .catalogo {
     padding: 20px;
     gap: 20px;
   }
+
   .card {
     min-width: 180px;
     font-size: 36px;
