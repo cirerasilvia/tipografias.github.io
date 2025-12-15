@@ -1,0 +1,61 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CUERPO */
+body {
+  font-family: sans-serif;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+}
+
+/* CATÁLOGO HORIZONTAL */
+.catalogo {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  overflow-x: auto;
+  height: calc(100vh - 80px);
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+/* TARJETAS TIPOGRAFÍA */
+.card {
+  min-width: 250px;
+  height: 200px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+/* Móvil: swipe natural */
+@media (max-width: 768px) {
+  .catalogo {
+    padding: 20px;
+    gap: 20px;
+  }
+  .card {
+    min-width: 180px;
+    font-size: 36px;
+  }
+}
